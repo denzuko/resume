@@ -18,10 +18,13 @@ script:
 
 deploy:
   provider: releases
-  file: resume.pdf
+  file:
+    - resume.pdf
   skip_cleanup: true
-  api_key: '$GITHUB_API_KEY'
+  api_key:
+    secure: ${GITHUB_API_KEY}
   overwrite: true
+  file_glob: true
   on:
-    tags: true
     branch: master
+    tags: true
