@@ -1,0 +1,24 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [0.0.1] - 2020-03-02
+
+### Changed
+    - (bugfix) reorder deps to address missing image
+    - (bugfix) Resolves errors from build #3 and #4
+    - (chore) Clean up whitespaces on Makefile
+    - (feat) bump to ubuntu 18
+
+### Added
+    - (doc) Add cicd, issues, and licence badges
+    - (doc) Add initial Changelog
+    - (feat) build with cicd
+    - (feat) Initial release with linkedin profile and cli cookie
+
+### Removed
+    - (chore) Remove groff install to progress pipeline effort
