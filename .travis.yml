@@ -25,7 +25,7 @@ deploy:
   - provider: releases
     file: build/resume.pdf
     skip_cleanup: true
-    api_key: ${GH_TOKEN}
+    api_key: '$GITHUB_API_KEY'
     on:
       tags: true
       branch: master
