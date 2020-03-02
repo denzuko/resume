@@ -44,7 +44,7 @@ endef
 all: deps build
 
 deps: $(DEPS)
-	
+
 build: $(OUTPUT)
 
 clean:
