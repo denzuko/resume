@@ -8,7 +8,7 @@ PACKAGE		:= com.dwightaspencer.$(PROJECT)
 JARFILE		:= $(PROJECT)-$(VERSION).jar
 JAVAC		:= javac -Xlint:unchecked -g
 OUTPUT		:= $(JARFILE) resume.pdf
-DEPS		:= cv.pdf Dockerfile truepolyglot
+DEPS		:= cv.pdf truepolyglot Dockerfile 
 TAG		:= $(PROJECT):$(VERSION)
 sources		:= 
 
