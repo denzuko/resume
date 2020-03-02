@@ -22,3 +22,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
     - (chore) Remove groff install to progress pipeline effort
+
+
+## [0.0.2] - 2020-03-02
+
+### Changed
+    - (bugfix) resolves github repo does not include truepolyglot build files
+    - (bugfix) resolves issue #3 on github
+
+### Added
+
+### Removed
+    - (bugfix) resolves invalid option "--token=" from build #8
