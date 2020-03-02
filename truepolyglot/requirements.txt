@@ -1,0 +1,2 @@
+PyPDF2
+git+https://github.com/ansemjo/truepolyglot.git
