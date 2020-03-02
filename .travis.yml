@@ -1,0 +1,29 @@
+language: java
+
+sudo: required
+dist: trusty
+
+services:
+  - docker
+
+branches:
+  only:
+    - master
+
+install:
+  - sudo apt install groff
+
+script:
+  - make all
+  - mkdir build
+
+after_success:
+  - cp resume.pdf build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: ${GH_TOKEN}
+  local_dir: build/
+  on:
+    branch: master
