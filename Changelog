@@ -29,8 +29,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
     - (bugfix) resolves github repo does not include truepolyglot build files
     - (bugfix) resolves issue #3 on github
+    - (bugfix) resolves invalid option "--token=" from build #8
 
 ### Added
 
 ### Removed
-    - (bugfix) resolves invalid option "--token=" from build #8
+
+
+## [0.0.3] - 2020-03-02
+
+### Changed
+    - (feat) Overwrite release files by default
+    - (feat) use arrays for file, change api_key to secure
+
+### Added
+
+### Removed
+
