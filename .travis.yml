@@ -15,13 +15,13 @@ install:
 
 script:
   - make all
-  - mkdir build
 
 deploy:
   provider: releases
   file: resume.pdf
   skip_cleanup: true
   api_key: '$GITHUB_API_KEY'
+  overwrite: true
   on:
     tags: true
     branch: master
