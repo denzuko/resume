@@ -17,22 +17,11 @@ script:
   - make all
   - mkdir build
 
-after_success:
-  - cp resume.pdf build
-
 deploy:
-
-  - provider: releases
-    file: build/resume.pdf
-    skip_cleanup: true
-    api_key: '$GITHUB_API_KEY'
-    on:
-      tags: true
-      branch: master
-
-  - provider: pages
-    skip_cleanup: true
-    github_token: ${GH_TOKEN}
-    local_dir: build/
-    on:
-      branch: master
+  provider: releases
+  file: resume.pdf
+  skip_cleanup: true
+  api_key: '$GITHUB_API_KEY'
+  on:
+    tags: true
+    branch: master
