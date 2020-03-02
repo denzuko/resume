@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Created-By: Dwight Spencer (w/vim)
+Built-By: gnu make
+Build-Jdk: 8.0
+Main-Class: com.dwightaspencer.javacv.JavaCV
+Class-Path: .
