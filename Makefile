@@ -23,7 +23,7 @@ else
 endif
 classes		:= $(sources:.java=.class)
 
-.PHONY: all clean distclean deps test
+.PHONY: all clean distclean deps test truepolyglot
 
 define DOCKERFILE
 FROM truepolyglot:latest AS build
