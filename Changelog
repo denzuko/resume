@@ -6,6 +6,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2020-03-04
+
+### Changed
+
+    - (bugfix) resolves COPY failed: FNOENT resume.pdf
+    - (chore) ensure semver asset is used in final stage
+    - (bugfix) ensures only built semver file is used in final stage
+ 
+### Added
+    - (feat) release to ipfs
+    - (feat) add resources to jar file on build
+    - (feat) Self extract payload based on file extention
+    - (feat) move Dockerfile changes into Makefile template
+
+### Removed
+
+
 ## [0.0.1] - 2020-03-02
 
 ### Changed
@@ -45,4 +62,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 ### Removed
+
 
