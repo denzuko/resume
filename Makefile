@@ -48,7 +48,7 @@ deps: $(DEPS)
 build: $(OUTPUT)
 
 clean:
-	@-rm -f $(classes)
+	@-rm -f $(classes) *.tmp
 
 distclean: clean
 	@-rm $(OUTPUT) Dockerfile
@@ -67,7 +67,11 @@ test: TestAll.class
 	@java -classpath $(TEST_DIR):$(SRC_DIR) junit.textui.TestRunner TestAll
 
 $(JARFILE): $(classes)
-	@jar cfm $@ $(MANIFEST) -C $(SRC_DIR) $(<:$(SRC_DIR)/%=%)
+	@jar cvfm $@ $(MANIFEST) -C $(SRC_DIR) $(<:$(SRC_DIR)/%=%)
+	@jar uvf $@ -C $(RES_DIR) res/
+
+index: $(JARFILE)
+	@jar i $<
 
 truepolyglot:
 	@$(MAKE) -C $@
