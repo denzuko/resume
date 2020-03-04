@@ -42,8 +42,8 @@ ENV OUTPUT $$OUTPUT
 ARG JARFILE=$(JARFILE)
 ENV JARFILE=$(JARFILE)
 WORKDIR /src
-COPY cv.pdf /src/
-COPY $$OUTPUT /src/
+COPY $$INPUT /src/
+COPY $$JARFILE /src/
 RUN truepolyglot szippdf \
       --pdffile /src/$$INPUT \
       --zipfile /src/$$JARFILE \
