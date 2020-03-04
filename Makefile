@@ -1,16 +1,24 @@
-RES_DIR		:= src/resources
-SRC_DIR		:= src/main/java
-TEST_DIR	:= src/test/java
-MANIFEST	:= $(RES_DIR)/manifest.txt
-PROJECT		:= $(shell basename "$(shell pwd)")
-VERSION		:= 1.0.0
-PACKAGE		:= com.dwightaspencer.$(PROJECT)
-JARFILE		:= $(PROJECT)-$(VERSION).jar
-JAVAC		:= javac -Xlint:unchecked -g
-OUTPUT		:= $(JARFILE) resume.pdf
-DEPS		:= cv.pdf truepolyglot Dockerfile 
-TAG		:= $(PROJECT):$(VERSION)
-sources		:= 
+RES_DIR			:= src/resources
+SRC_DIR			:= src/main/java
+TEST_DIR		:= src/test/java
+MANIFEST		:= $(RES_DIR)/manifest.txt
+PROJECT			:= $(shell basename "$(shell pwd)")
+VERSION			:= 1.0.0
+PACKAGE			:= com.dwightaspencer.$(PROJECT)
+JARFILE			:= $(PROJECT)-$(VERSION).jar
+JAVAC			:= javac -Xlint:unchecked -g
+OUTPUT			:= $(JARFILE) resume.pdf
+DEPS			:= cv.pdf truepolyglot Dockerfile 
+TAG			:= $(PROJECT):$(VERSION)
+IPFS_PIN		:= https://api.pinata.cloud/pinning/pinFileToIPFS
+PINATA_API_KEY		:= $(shell printenv PINATA_API_KEY)
+PINATA_SECRET_API_KEY	:= $(shell printenv PINATA_API_KEY)
+CURL			:= $(shell which curl)
+CURL_OPTS		:= -X POST
+CURL_OPTS		+= -H 'Content-Type:multipart/form-data'
+CURL_OPTS		+= -H 'pinata_api_key:'"$(PINATA_API_KEY)"
+CURL_OPTS		+= -H 'pinata_secret_api_key:'"$(PINATA_SECRET_API_KEY)" 
+sources			:= 
 
 ifeq ($(OS), "Windows")
 	sources	:= $(shell dir /s /B *.java)
@@ -75,6 +83,10 @@ index: $(JARFILE)
 
 truepolyglot:
 	@$(MAKE) -C $@
+
+release: resume.pdf
+	@$(CURL) $(CURL_OPTS) $(IPFS_PIN) -Ffile=@$<
+
 
 resume.pdf: $(DEPS) $(JARFILE)
 	@docker build --rm -t $(TAG) .
