@@ -35,14 +35,18 @@ classes		:= $(sources:.java=.class)
 
 define DOCKERFILE
 FROM truepolyglot:latest AS build
+ARG INPUT=cv.pdf
+ENV INPUT=cv.pdf
 ARG OUTPUT=resume.pdf
 ENV OUTPUT $$OUTPUT
+ARG JARFILE=$(JARFILE)
+ENV JARFILE=$(JARFILE)
 WORKDIR /src
 COPY cv.pdf /src/
-COPY *.jar /src/
+COPY $$OUTPUT /src/
 RUN truepolyglot szippdf \
-      --pdffile /src/cv.pdf \
-      --zipfile /src/*.jar \
+      --pdffile /src/$$INPUT \
+      --zipfile /src/$$JARFILE \
       --acrobat-compatibility $$OUTPUT
 
 FROM scratch AS assets
